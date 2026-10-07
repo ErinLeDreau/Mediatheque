@@ -10,6 +10,9 @@ public class Auteur {
         this.prenom = prenom;
     }
 
+    public Auteur() {
+    }
+
     public String getNom() {
         return nom;
     }

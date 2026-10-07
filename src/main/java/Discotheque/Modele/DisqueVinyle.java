@@ -15,6 +15,10 @@ public class DisqueVinyle extends Album {
         this.taille = taille;
     }
 
+    public DisqueVinyle(String nom, Auteur auteur, LocalDate annee, int quantite) {
+        super(nom, auteur, annee, quantite);
+    }
+
     public String getNumero() {
         return numero;
     }

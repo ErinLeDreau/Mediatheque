@@ -11,6 +11,9 @@ public abstract class Album {
     protected LocalDate annee;
     protected int quantite;
 
+    protected Album() {
+    }
+
     public Album(String nom, Auteur auteur, LocalDate annee, int quantite) {
         this.nom = nom;
         this.auteur = auteur;

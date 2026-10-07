@@ -8,6 +8,9 @@ public class Disque {
     private Auteur auteur;
     private LocalDate annee;
 
+    public Disque() {
+    }
+
     public Disque(String nom, Auteur auteur, LocalDate annee) {
         this.nom = nom;
         this.auteur = auteur;

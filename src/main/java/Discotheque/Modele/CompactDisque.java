@@ -9,6 +9,10 @@ public class CompactDisque extends Album {
     private String numero;
     private String type;
 
+    public CompactDisque(String nom, Auteur auteur, LocalDate annee, int quantite) {
+        super(nom, auteur, annee, quantite);
+    }
+
     public CompactDisque(String nom, Auteur auteur, LocalDate annee, int quantite, String numero, String type) {
         super(nom, auteur, annee, quantite);
         this.numero = numero;

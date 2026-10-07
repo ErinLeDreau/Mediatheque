@@ -4,6 +4,7 @@ import Discotheque.Exceptions.*;
 import Discotheque.Modele.*;
 import Discotheque.Modele.Abstract.Album;
 import Discotheque.Modele.Audio.ConvertisseurAudio;
+import Discotheque.Modele.Audio.SauvAlbum;
 
 
 import java.io.IOException;
@@ -16,6 +17,13 @@ public class Controller {
     public static Scanner scan = new Scanner(System.in);
     private static LecteurMp3 lecteur;
 
+    private  SauvAlbum sauvAlbum;
+
+    public Controller(SauvAlbum sauvAlbum) {
+        this.sauvAlbum = sauvAlbum;
+    }
+
+
 
     public void afficherMenu() {
         System.out.println("===== GESTION DE LA DISCOTHEQUE =====");
@@ -26,7 +34,36 @@ public class Controller {
         System.out.println("5. Lire un fichier numérique");
         System.out.println("6. Arret lecture");
         System.out.println("7. Convertir un album MP3 en AAC");
+        System.out.println("8. Sauvegarder la discothèque");
+        System.out.println("9. Charger une discothèque");
         System.out.println("0. Quitter");
+    }
+
+    public void sauvegarder() throws Exception{
+        try{
+            sauvAlbum.sauvegarder(Discotheque.getDiscotheque());
+            System.out.println(Discotheque.getDiscotheque().size() + " album(s) sauvegardé(s)");
+
+        }catch (Exception e) {
+            System.out.println("Problème de sauvegarde" + e.getMessage());
+        }
+    }
+
+    public void charger(){
+        try {
+            int i = 0;
+            for(Album a : sauvAlbum.charger()){
+                try {
+                    Discotheque.ajouterAlbum(a);
+                    i++;
+                }catch (DoublonException e){
+                    System.out.println(a.getNom() + "déjà présent");
+                }
+            }
+            System.out.println(i + " albums importés");
+        }catch (Exception e){
+            System.out.println("Erreur lors du chargement : " + e.getMessage());
+        }
     }
 
     public String saisirMdp(){
