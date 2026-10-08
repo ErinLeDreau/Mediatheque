@@ -1,11 +1,15 @@
 package Discotheque.Modele;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Auteur {
 
     private String nom;
     private String prenom;
 
-    public Auteur(String nom, String prenom) {
+    @JsonCreator
+    public Auteur(@JsonProperty("nom") String nom, @JsonProperty("prenom") String prenom) {
         this.nom = nom;
         this.prenom = prenom;
     }

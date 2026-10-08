@@ -1,6 +1,8 @@
 package Discotheque.Modele;
 
 import Discotheque.Modele.Abstract.Album;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
@@ -9,7 +11,10 @@ public class DisqueVinyle extends Album {
     private String numero;
     private int taille;
 
-    public DisqueVinyle(String nom, Auteur auteur, LocalDate annee, int quantite, String numero, int taille) {
+    @JsonCreator
+    public DisqueVinyle(@JsonProperty("nom") String nom, @JsonProperty("auteur") Auteur auteur,
+                        @JsonProperty("annee") LocalDate annee, @JsonProperty("quantite") int quantite,
+                        @JsonProperty("numero") String numero, @JsonProperty("taille") int taille) {
         super(nom, auteur, annee, quantite);
         this.numero = numero;
         this.taille = taille;

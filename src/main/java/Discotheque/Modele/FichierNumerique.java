@@ -1,6 +1,9 @@
 package Discotheque.Modele;
 
 import Discotheque.Modele.Abstract.Album;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -22,7 +25,11 @@ public class FichierNumerique extends Album {
         this.duree = duree;
     }
 
-    public FichierNumerique(String nom, Auteur auteur, LocalDate annee, int quantite, String format, double taille, int duree, String chemin) {
+    @JsonCreator
+    public FichierNumerique(@JsonProperty("nom") String nom, @JsonProperty("auteur") Auteur auteur,
+                            @JsonProperty("annee") LocalDate annee, @JsonProperty("quantite") int quantite,
+                            @JsonProperty("format") String format, @JsonProperty("taille") double taille,
+                            @JsonProperty("duree") int duree, @JsonProperty("chemin") String chemin) {
         super(nom, auteur, annee, quantite);
         this.format = format;
         this.taille = taille;
@@ -34,6 +41,7 @@ public class FichierNumerique extends Album {
         return chemin;
     }
 
+    @JsonIgnore
     public File getFichier(){
         return new File(chemin);
     }

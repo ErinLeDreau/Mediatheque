@@ -1,14 +1,8 @@
-import Discotheque.Modele.Audio.SauvAlbum;
-import Sauvegarde.SauvAlbumJson;
-
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Controller {
 
     public static Scanner scan = new Scanner(System.in);
-
-    private final SauvAlbum sauvAlbum = new SauvAlbumJson(Path.of("src/main/resources/disco.json"));
 
     public void afficherMenu() {
         System.out.println("===== MEDIATHÈQUE =====");
@@ -19,10 +13,12 @@ public class Controller {
     }
 
     public void lancerDiscotheque() {
-        Discotheque.Main.main(sauvAlbum);
+        Discotheque.Application.Controller.scan = scan;
+        Discotheque.Main.main(new String[]{});
     }
 
     public void lancerVideotheque() {
+        Videotheque.Applications.Controller.scan = scan;
         Videotheque.Applications.Main.main(new String[]{});
     }
 

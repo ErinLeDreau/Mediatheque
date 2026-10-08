@@ -1,19 +1,21 @@
 package Discotheque;
 
 import Discotheque.Application.Controller;
+import Discotheque.Application.Json;
 import Discotheque.Exceptions.*;
-import Discotheque.Modele.Audio.SauvAlbum;
 import Discotheque.Modele.Auth;
 import Discotheque.Modele.Discotheque;
+import Sauvegarde.StockageJsonDiscotheque;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.util.InputMismatchException;
 
 public class Main {
-    public static void main(SauvAlbum sauvAlbum) {
+    public static void main(String[] args) {
 
-        Controller c = new Controller(sauvAlbum);
+        Controller c = new Controller();
         int choix = -1;
 
         String pass;
@@ -54,10 +56,11 @@ public class Main {
                         c.convertirFichier();
                         break;
                     case 8:
-                        c.sauvegarder();
+                        new StockageJsonDiscotheque("src/main/resources/disco.json").sauvegarder(Discotheque.getDiscotheque());
                         break;
                     case 9:
-                        c.charger();
+                        Discotheque.setDiscotheque(new StockageJsonDiscotheque("src/main/resources/disco.json").charger());
+                        System.out.println("Discothèque restaurée avec succès !");
                         break;
                     case 0:
                         System.out.println("Au revoir !");
@@ -80,13 +83,9 @@ public class Main {
                 throw new RuntimeException(e);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
             }
 
         } while (choix != 0);
-
-        Controller.scan.close();
 
     }
 
