@@ -1,7 +1,6 @@
 package Discotheque;
 
 import Discotheque.Application.Controller;
-import Discotheque.Application.Json;
 import Discotheque.Exceptions.*;
 import Discotheque.Modele.Auth;
 import Discotheque.Modele.Discotheque;
@@ -70,18 +69,13 @@ public class Main {
                 }
 
                 System.out.println();
-            } catch (DiscothequeVideException | SaisieInvalideException | DoublonException | AlbumIntrouvableException | DateFormatException |
-                     DateTimeException e) {
+            } catch (DiscothequeVideException | SaisieInvalideException | DoublonException | AlbumIntrouvableException |
+                     DateFormatException | DateTimeException | FichierAudioException | IOException |
+                     InterruptedException e) {
                 System.out.println("Erreur: "+ e.getMessage() + " (" + e.getClass().getSimpleName() + ")");
             } catch (InputMismatchException e){
-                System.out.println("Erreur: " + e.getClass().getSimpleName());
+                System.out.println("Erreur: "+ e.getMessage() + " (" + e.getClass().getSimpleName() + ")");
                 Controller.scan.nextLine();
-            } catch (FichierAudioException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
 
         } while (choix != 0);

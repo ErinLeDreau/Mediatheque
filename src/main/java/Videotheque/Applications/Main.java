@@ -1,10 +1,12 @@
 package Videotheque.Applications;
 
+import Videotheque.Exceptions.*;
 import Videotheque.Modeles.Interfaces.GestionVideotheque;
 import Videotheque.Modeles.Videotheque;
 import Videotheque.Video.LecteurVideo;
 import Sauvegarde.StockageJsonVideotheque;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class Main {
@@ -77,11 +79,16 @@ public class Main {
                 }
 
                 System.out.println();
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | InterruptedException e) {
                 System.out.println("La saisie n'est pas valide. Veuillez entrer un nombre.");
                 Controller.scan.nextLine();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (SaisieInvalideException | ConversionImpossibleException
+                     | VideoDejaExistanteException
+                     | VideothequeVideException
+                     | LectureImpossibleException
+                     | IOException
+                     | VideoIntrouvableException  e) {
+                System.out.println("Erreur: "+ e.getMessage() + " (" + e.getClass().getSimpleName() + ")");
             }
 
         } while (choix != 0);

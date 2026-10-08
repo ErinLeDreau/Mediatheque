@@ -33,8 +33,6 @@ public class App {
             } catch (InputMismatchException e) {
                 System.out.println("La saisie n'est pas valide. Veuillez entrer un nombre.");
                 Controller.scan.nextLine();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
 
         } while (choix != 0);
