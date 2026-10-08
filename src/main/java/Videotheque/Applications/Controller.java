@@ -87,6 +87,14 @@ public class Controller {
         }
     }
 
+    public void arreterStream() {
+        if (StreamWebcam.arreterStreamActif()) {
+            System.out.println("Stream arrêtée.");
+        } else {
+            System.out.println("Aucun stream n'est actuellement en cours.");
+        }
+    }
+
     public void convertirVideo(GestionVideotheque videotheque) throws VideothequeVideException, VideoIntrouvableException, SaisieInvalideException, ConversionImpossibleException {
         System.out.println("Titre de la vidéo à convertir:");
         String titre = saisieTitre();

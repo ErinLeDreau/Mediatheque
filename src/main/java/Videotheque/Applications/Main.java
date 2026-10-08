@@ -72,6 +72,7 @@ public class Main {
                     case 0:
                         System.out.println("Au revoir !");
                         c.arreterVideo();
+                        c.arreterStream();
                         break;
                     default:
                         System.out.println("Choix invalide, veuillez réessayer.");
