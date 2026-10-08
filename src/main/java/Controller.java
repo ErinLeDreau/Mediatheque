@@ -13,10 +13,12 @@ public class Controller {
     }
 
     public void lancerDiscotheque() {
+        Discotheque.Application.Controller.scan = scan;
         Discotheque.Main.main(new String[]{});
     }
 
     public void lancerVideotheque() {
+        Videotheque.Applications.Controller.scan = scan;
         Videotheque.Applications.Main.main(new String[]{});
     }
 

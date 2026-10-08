@@ -69,8 +69,13 @@ public class Controller {
     }
 
     public void arretLecture(){
-        lecteur.arreter();
-        System.out.println("STOP");
+        if (lecteur != null) {
+            lecteur.arreter();
+            lecteur = null;
+            System.out.println("STOP");
+        } else {
+            System.out.println("Aucune lecture audio en cours.");
+        }
     }
 
     public Auteur saisieAuteur() throws SaisieInvalideException {

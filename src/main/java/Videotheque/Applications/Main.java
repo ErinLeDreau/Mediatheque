@@ -87,7 +87,5 @@ public class Main {
 
         } while (choix != 0);
 
-        Controller.scan.close();
-
     }
 }
