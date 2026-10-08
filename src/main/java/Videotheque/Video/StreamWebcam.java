@@ -50,7 +50,7 @@ public class StreamWebcam implements Runnable {
 
     }
 
-    public void lancerWebcam(){
+    public void lancerWebcam() throws InterruptedException {
         thread = new Thread(this, "webcam streaming");
         thread.setDaemon(true);
         thread.start();
@@ -59,6 +59,7 @@ public class StreamWebcam implements Runnable {
             arreterStreamActif();
         }
         streamWebcamActif = this;
+        thread.join(1000); //On attend 1sec avant de redonner la main
     }
 
     public void arreter(){
