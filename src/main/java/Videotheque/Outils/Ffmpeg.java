@@ -57,8 +57,6 @@ public final class Ffmpeg {
     }
 
     public static Process webcam(String streamUrl, String streamKey) throws IOException {
-        // stream url "rtmp://a.rtmp.youtube.com/live2"
-        //temp key dk7g-zakt-qb90-8u7x-6t12
         //ffmpeg -f dshow -i video="HP True Vision HD Camera":audio="Réseau de microphones (Technologie Intel® Smart Sound pour microphones numériques)" -vcodec libx264 -preset ultrafast -tune zerolatency -b:v 1000k -maxrate 1000k -bufsize 2000k -pix_fmt yuv420p -g 60 -f flv "rtmp://a.rtmp.youtube.com/live2/wrrx-t672-z4xr-g307-bbzf"
         String videoDevice = "HP True Vision HD Camera";
         String audioDevice = "Réseau de microphones (Technologie Intel® Smart Sound pour microphones numériques)";

@@ -56,11 +56,10 @@ public class Main {
                         c.convertirFichier();
                         break;
                     case 8:
-                        new StockageJsonDiscotheque("src/main/resources/disco.json").sauvegarder(Discotheque.getDiscotheque());
+                        c.sauvegarderDiscotheque();
                         break;
                     case 9:
-                        Discotheque.setDiscotheque(new StockageJsonDiscotheque("src/main/resources/disco.json").charger());
-                        System.out.println("Discothèque restaurée avec succès !");
+                        c.chargerDiscotheque();
                         break;
                     case 0:
                         System.out.println("Au revoir !");

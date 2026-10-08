@@ -62,16 +62,15 @@ public class Main {
                         c.lancerWebcam();
                         break;
                     case 10:
-                        new StockageJsonVideotheque("src/main/resources/video.json").sauvegarder(Videotheque.getVideotheque());
+                        c.sauvegarderVideotheque();
                         break;
                     case 11:
-                        Videotheque.getVideotheque().clear();
-                        Videotheque.getVideotheque().addAll(new StockageJsonVideotheque("src/main/resources/video.json").charger());
-                        System.out.println("Vidéothèque restaurée avec succès !");
+                        c.chargerVideotheque();
                         break;
                     case 0:
                         System.out.println("Au revoir !");
                         c.arreterVideo();
+                        c.arreterStream();
                         break;
                     default:
                         System.out.println("Choix invalide, veuillez réessayer.");
