@@ -58,10 +58,10 @@ public class Main {
                         c.arreterVideo();
                         break;
                     case 8:
-                        LecteurVideo.voirLecteurActif();
+                        c.lancerStream();
                         break;
                     case 9:
-                        c.lancerWebcam();
+                        c.arreterStream();
                         break;
                     case 10:
                         c.sauvegarderVideotheque();

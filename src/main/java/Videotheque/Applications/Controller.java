@@ -29,6 +29,8 @@ public class Controller {
         System.out.println("5. Lire une vidéo");
         System.out.println("6. Convertir une vidéo");
         System.out.println("7. Arrêter la lecture");
+        System.out.println("8. Lancer le stream webcam");
+        System.out.println("9. Arrêter le stream webcam");
         System.out.println("10. Sauvegarder la vidéothèque");
         System.out.println("11. Restaurer la vidéothèque");
         System.out.println("0. Quitter");
@@ -107,7 +109,7 @@ public class Controller {
         videotheque.convertirVideo(titre, format);
     }
 
-    public void lancerWebcam() throws InterruptedException {
+    public void lancerStream() throws InterruptedException {
         StreamWebcam stream = new StreamWebcam("172.16.120.28", "erin");
         stream.lancerWebcam();
     }
