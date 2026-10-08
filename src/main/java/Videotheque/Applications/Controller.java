@@ -107,7 +107,7 @@ public class Controller {
         videotheque.convertirVideo(titre, format);
     }
 
-    public void lancerWebcam() {
+    public void lancerWebcam() throws InterruptedException {
         StreamWebcam stream = new StreamWebcam("172.16.120.28", "erin");
         stream.lancerWebcam();
     }
