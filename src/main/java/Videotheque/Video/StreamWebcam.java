@@ -24,7 +24,7 @@ public class StreamWebcam implements Runnable {
                 return;
             }
 
-            System.out.println("Streaming de la webcam à l'URL : " + url);
+            System.out.println("Streaming de la webcam à l'URL : " + url + "/" + key);
             processus = Ffmpeg.webcam(this.url,this.key);
             int codeRetour = processus.waitFor();
             if (codeRetour != 0) {
