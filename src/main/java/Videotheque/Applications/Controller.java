@@ -1,14 +1,17 @@
 package Videotheque.Applications;
 
+import Sauvegarde.StockageJsonVideotheque;
 import Videotheque.Exceptions.*;
 import Videotheque.Modeles.Abstracts.Video;
 import Videotheque.Modeles.Dvd;
 import Videotheque.Modeles.Interfaces.GestionVideotheque;
 import Videotheque.Modeles.VideoAvi;
 import Videotheque.Modeles.VideoMp4;
+import Videotheque.Modeles.Videotheque;
 import Videotheque.Video.LecteurVideo;
 import Videotheque.Video.StreamWebcam;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -107,6 +110,17 @@ public class Controller {
     public void lancerWebcam() {
         StreamWebcam stream = new StreamWebcam("172.16.120.28", "erin");
         stream.lancerWebcam();
+    }
+
+    public void sauvegarderVideotheque() throws IOException {
+        new StockageJsonVideotheque("src/main/resources/video.json").sauvegarder(Videotheque.getVideotheque());
+        System.out.println("Vidéothèque sauvegardée avec succès.");
+    }
+
+    public void chargerVideotheque() throws IOException {
+        Videotheque.getVideotheque().clear();
+        Videotheque.getVideotheque().addAll(new StockageJsonVideotheque("src/main/resources/video.json").charger());
+        System.out.println("Vidéothèque chargée avec succès !");
     }
 
     private Dvd creerDVD () throws SaisieInvalideException {

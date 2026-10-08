@@ -13,11 +13,4 @@
   "dateSortie" : "2010-12-10",
   "duree" : 136,
   "chemin" : "C:\\Users\\CDAX24\\Downloads\\Denis-Ah.mp4"
-}, {
-  "@type" : "VideoAvi",
-  "titre" : "Film3",
-  "realisateur" : "James Cameron",
-  "dateSortie" : "2010-12-10",
-  "duree" : 162,
-  "chemin" : "C:\\Users\\CDAX24\\Downloads\\meme-compil.avi"
 } ]

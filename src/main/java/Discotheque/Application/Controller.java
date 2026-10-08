@@ -4,6 +4,7 @@ import Discotheque.Exceptions.*;
 import Discotheque.Modele.*;
 import Discotheque.Modele.Abstract.Album;
 import Discotheque.Modele.Audio.ConvertisseurAudio;
+import Sauvegarde.StockageJsonDiscotheque;
 
 
 import java.io.IOException;
@@ -273,5 +274,16 @@ public class Controller {
         String n= saisieNomDisque();
 
         Discotheque.rechercherAlbum(n);
+    }
+
+    public void sauvegarderDiscotheque() throws IOException {
+        new StockageJsonDiscotheque("src/main/resources/disco.json").sauvegarder(Discotheque.getDiscotheque());
+        System.out.println("Discothèque sauvegardée avec succès !");
+    }
+
+    public void chargerDiscotheque() throws IOException {
+        Discotheque.getDiscotheque().clear();
+        Discotheque.setDiscotheque(new StockageJsonDiscotheque("src/main/resources/disco.json").charger());
+        System.out.println("Discothèque restaurée avec succès !");
     }
 }
