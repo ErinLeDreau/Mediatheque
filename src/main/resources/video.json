@@ -1,0 +1,23 @@
+[ {
+  "@type" : "Dvd",
+  "titre" : "Film1",
+  "realisateur" : "Christopher Nolan",
+  "dateSortie" : "2010-12-10",
+  "duree" : 148,
+  "numero" : "numero123",
+  "zone" : 1
+}, {
+  "@type" : "VideoMp4",
+  "titre" : "Film2",
+  "realisateur" : "Lana Wachowski, Lilly Wachowski",
+  "dateSortie" : "2010-12-10",
+  "duree" : 136,
+  "chemin" : "C:\\Users\\CDAX24\\Downloads\\Denis-Ah.mp4"
+}, {
+  "@type" : "VideoAvi",
+  "titre" : "Film3",
+  "realisateur" : "James Cameron",
+  "dateSortie" : "2010-12-10",
+  "duree" : 162,
+  "chemin" : "C:\\Users\\CDAX24\\Downloads\\meme-compil.avi"
+} ]

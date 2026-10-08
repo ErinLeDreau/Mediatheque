@@ -1,10 +1,10 @@
 package Discotheque;
 
 import Discotheque.Application.Controller;
-import Discotheque.Application.Json;
 import Discotheque.Exceptions.*;
 import Discotheque.Modele.Auth;
 import Discotheque.Modele.Discotheque;
+import Sauvegarde.StockageJsonDiscotheque;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import java.io.IOException;
@@ -55,7 +55,12 @@ public class Main {
                         c.convertirFichier();
                         break;
                     case 8:
-                        Json.remplirJson(Discotheque.getDiscotheque());
+                        new StockageJsonDiscotheque("src/main/resources/disco.json").sauvegarder(Discotheque.getDiscotheque());
+                        break;
+                    case 9:
+                        Discotheque.setDiscotheque(new StockageJsonDiscotheque("src/main/resources/disco.json").charger());
+                        System.out.println("Discothèque restaurée avec succès !");
+                        break;
                     case 0:
                         System.out.println("Au revoir !");
                         c.arretLecture();

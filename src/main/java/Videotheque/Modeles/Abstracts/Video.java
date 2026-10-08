@@ -1,9 +1,21 @@
 package Videotheque.Modeles.Abstracts;
 
 import Videotheque.Modeles.Interfaces.Lisible;
+import Videotheque.Modeles.Dvd;
+import Videotheque.Modeles.VideoAvi;
+import Videotheque.Modeles.VideoMp4;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "@type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Dvd.class, name = "Dvd"),
+        @JsonSubTypes.Type(value = VideoMp4.class, name = "VideoMp4"),
+        @JsonSubTypes.Type(value = VideoAvi.class, name = "VideoAvi")
+})
 public abstract class Video implements Lisible {
 
     protected String titre;
@@ -60,5 +72,6 @@ public abstract class Video implements Lisible {
                 '}';
     }
 
+    @JsonIgnore
     public abstract String getSupport();
 }

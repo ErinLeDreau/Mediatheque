@@ -1,6 +1,8 @@
 package Videotheque.Modeles;
 
 import Videotheque.Modeles.Abstracts.Video;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
@@ -9,7 +11,10 @@ public class Dvd extends Video {
     private String numero;
     private int zone;
 
-    public Dvd(String titre, String realisateur, LocalDate dateSortie, int duree, String numero, int zone) {
+    @JsonCreator
+    public Dvd(@JsonProperty("titre") String titre, @JsonProperty("realisateur") String realisateur,
+               @JsonProperty("dateSortie") LocalDate dateSortie, @JsonProperty("duree") int duree,
+               @JsonProperty("numero") String numero, @JsonProperty("zone") int zone) {
         super(titre, realisateur, dateSortie, duree);
         this.numero = numero;
         this.zone = zone;

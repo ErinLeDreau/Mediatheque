@@ -1,13 +1,18 @@
 package Videotheque.Modeles;
 
 import Videotheque.Modeles.Abstracts.FichierVideo;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class VideoAvi extends FichierVideo {
 
-    public VideoAvi(String titre, String realisateur, LocalDate dateSortie, int duree, String chemin) {
+    @JsonCreator
+    public VideoAvi(@JsonProperty("titre") String titre, @JsonProperty("realisateur") String realisateur,
+                    @JsonProperty("dateSortie") LocalDate dateSortie, @JsonProperty("duree") int duree,
+                    @JsonProperty("chemin") String chemin) {
         super(titre, realisateur, dateSortie, duree, chemin);
     }
 

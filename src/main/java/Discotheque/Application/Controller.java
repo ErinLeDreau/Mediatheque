@@ -26,6 +26,8 @@ public class Controller {
         System.out.println("5. Lire un fichier numérique");
         System.out.println("6. Arret lecture");
         System.out.println("7. Convertir un album MP3 en AAC");
+        System.out.println("8. Sauvegarder la discothèque");
+        System.out.println("9. Restaurer la discothèque");
         System.out.println("0. Quitter");
     }
 

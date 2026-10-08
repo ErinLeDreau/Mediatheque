@@ -26,6 +26,8 @@ public class Controller {
         System.out.println("5. Lire une vidéo");
         System.out.println("6. Convertir une vidéo");
         System.out.println("7. Arrêter la lecture");
+        System.out.println("10. Sauvegarder la vidéothèque");
+        System.out.println("11. Restaurer la vidéothèque");
         System.out.println("0. Quitter");
         System.out.println("=======================");
     }

@@ -5,9 +5,10 @@ import Discotheque.Modele.Auteur;
 import Discotheque.Modele.Disque;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestionDisque {
-    private static ArrayList<Disque> discotheque = new ArrayList<>();
+    private static List<Disque> discotheque = new ArrayList<>();
 
 
     public static void creerDisque(Disque d) {
@@ -56,11 +57,11 @@ public class GestionDisque {
 
     }
 
-    public static ArrayList<Disque> getDiscotheque() {
+    public static List<Disque> getDiscotheque() {
         return discotheque;
     }
 
-    public static void setDiscotheque(ArrayList<Disque> discotheque) {
+    public static void setDiscotheque(List<Disque> discotheque) {
         GestionDisque.discotheque = discotheque;
     }
 

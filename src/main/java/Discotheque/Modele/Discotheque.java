@@ -6,9 +6,10 @@ import Discotheque.Exceptions.DoublonException;
 import Discotheque.Modele.Abstract.Album;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Discotheque {
-    private static ArrayList<Album> discotheque = new ArrayList<>();
+    private static List<Album> discotheque = new ArrayList<>();
 
 
     /**public static void creerAlbum(Album a) {
@@ -58,11 +59,11 @@ public class Discotheque {
 
     }*/
 
-    public static ArrayList<Album> getDiscotheque() {
+    public static List<Album> getDiscotheque() {
         return discotheque;
     }
 
-    public static void setDiscotheque(ArrayList<Album> discotheque) {
+    public static void setDiscotheque(List<Album> discotheque) {
         Discotheque.discotheque = discotheque;
     }
 

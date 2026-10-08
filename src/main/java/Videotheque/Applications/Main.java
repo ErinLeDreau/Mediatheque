@@ -3,6 +3,7 @@ package Videotheque.Applications;
 import Videotheque.Modeles.Interfaces.GestionVideotheque;
 import Videotheque.Modeles.Videotheque;
 import Videotheque.Video.LecteurVideo;
+import Sauvegarde.StockageJsonVideotheque;
 
 import java.util.InputMismatchException;
 
@@ -59,6 +60,14 @@ public class Main {
                         break;
                     case 9:
                         c.lancerWebcam();
+                        break;
+                    case 10:
+                        new StockageJsonVideotheque("src/main/resources/video.json").sauvegarder(Videotheque.getVideotheque());
+                        break;
+                    case 11:
+                        Videotheque.getVideotheque().clear();
+                        Videotheque.getVideotheque().addAll(new StockageJsonVideotheque("src/main/resources/video.json").charger());
+                        System.out.println("Vidéothèque restaurée avec succès !");
                         break;
                     case 0:
                         System.out.println("Au revoir !");

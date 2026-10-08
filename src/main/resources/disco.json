@@ -1,0 +1,23 @@
+[ {
+  "@type" : "CompactDisque",
+  "nom" : "fkdslmfk",
+  "auteur" : {
+    "nom" : "auteur",
+    "prenom" : "test"
+  },
+  "annee" : "2025-10-12",
+  "quantite" : 2,
+  "numero" : "dsf1254",
+  "type" : "simple"
+}, {
+  "@type" : "DisqueVinyle",
+  "nom" : "Vinyle",
+  "auteur" : {
+    "nom" : "Auteur",
+    "prenom" : ""
+  },
+  "annee" : "2010-10-10",
+  "quantite" : 2,
+  "numero" : "nb125",
+  "taille" : 17
+} ]

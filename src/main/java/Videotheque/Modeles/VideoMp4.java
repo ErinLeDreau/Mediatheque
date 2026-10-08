@@ -1,12 +1,17 @@
 package Videotheque.Modeles;
 
 import Videotheque.Modeles.Abstracts.FichierVideo;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 public class VideoMp4 extends FichierVideo{
 
-    public VideoMp4(String titre, String realisateur, java.time.LocalDate dateSortie, int duree, String chemin) {
+    @JsonCreator
+    public VideoMp4(@JsonProperty("titre") String titre, @JsonProperty("realisateur") String realisateur,
+                    @JsonProperty("dateSortie") java.time.LocalDate dateSortie, @JsonProperty("duree") int duree,
+                    @JsonProperty("chemin") String chemin) {
         super(titre, realisateur, dateSortie, duree, chemin);
     }
 
